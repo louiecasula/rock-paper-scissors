@@ -35,7 +35,7 @@ let playGame = () => {
             console.log(`YOU LOST... FINAL SCORE: ${playerScore} - ${computerScore}`);
             return false;
         }
-        const playerSelection = prompt("Rock, Paper, or Scissors?");
+        const playerSelection = "Rock";
         const computerSelection = getComputerChoice();
         const result = playRound(playerSelection, computerSelection);
         if (result == undefined) { continue; }
