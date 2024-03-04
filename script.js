@@ -1,10 +1,13 @@
 const options = ["rock", "paper", "scissors"];
 
+let playerScore = 0, computerScore = 0;
+
 let getComputerChoice = () => options[Math.floor(Math.random() * 3)];
 
 let playRound = (playerSelection, computerSelection) => {
     if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
         console.log(`You both chose ${playerSelection}! It's a tie!`);
+        updateScoreboard();
         return;
     }
     switch(playerSelection.toLowerCase() + computerSelection.toLowerCase()) {
@@ -12,29 +15,18 @@ let playRound = (playerSelection, computerSelection) => {
         case("scissors" + "paper"):
         case("paper" + "rock"):
             console.log(`You won! ${playerSelection} beats ${computerSelection}!`);
+            playerScore++;
+            updateScoreboard();
             return true;
         case("rock" + "paper"):
         case("scissors" + "rock"):
         case("paper" + "scissors"):
             console.log(`You lost. ${computerSelection} beats ${playerSelection}...`);
+            computerScore++;
+            updateScoreboard();
             return false;
         default:
             console.log(`Invalid input. Please enter "Rock", "Paper", or "Scissors".`);
-    }
-}
-
-let playGame = () => {
-    let playerScore = 0, computerScore = 0;
-
-    while (true) {
-        if (playerScore == 5) {
-            console.log(`YOU WON!!! FINAL SCORE: ${playerScore} - ${computerScore}`);
-            return false;
-        }
-        if (computerScore == 5) {
-            console.log(`YOU LOST... FINAL SCORE: ${playerScore} - ${computerScore}`);
-            return false;
-        }
     }
 }
 
@@ -45,3 +37,9 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => playRound(button.id, getComputerChoice()))
 
 });
+
+let updateScoreboard = () => {
+    const scoreboard = document.getElementById('scoreboard');
+
+    scoreboard.innerHTML = `<p>${playerScore} - ${computerScore}</p>`;
+}

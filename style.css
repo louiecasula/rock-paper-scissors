@@ -2,14 +2,29 @@
 
 body {
     font-family: "Micro 5", sans-serif;
-    background-color: beige;
+    height: 100vh;
+    background: linear-gradient(bisque, beige);
+    background-repeat: no-repeat;
+    margin: 0;
 }
 
-header {
+.head {
     display: flex;
     flex: auto;
     justify-content: center;
-    font-size: 30px;
+    font-size: 4em;
+    height: auto;
+}
+
+.head h1 {
+    margin: 0;
+}
+
+#scoreboard {
+    display: flex;
+    flex: auto;
+    justify-content: center;
+    font-size: 4em;
 }
 
 .buttons {
@@ -20,5 +35,5 @@ header {
 }
 
 .buttons button {
-    font-size: 2em;
+    font-size: 8em;
 }
