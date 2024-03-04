@@ -35,19 +35,13 @@ let playGame = () => {
             console.log(`YOU LOST... FINAL SCORE: ${playerScore} - ${computerScore}`);
             return false;
         }
-        const playerSelection = "Rock";
-        const computerSelection = getComputerChoice();
-        const result = playRound(playerSelection, computerSelection);
-        if (result == undefined) { continue; }
-        if (result) {
-            playerScore++;
-            console.log(`YOU: ${playerScore} - ${computerScore} : COMP`);
-        }
-        if (!result){
-            computerScore++;
-            console.log(`YOU: ${playerScore} - ${computerScore} : COMP`);
-        }
     }
 }
 
-playGame();
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+
+    button.addEventListener('click', () => playRound(button.id, getComputerChoice()))
+
+});
