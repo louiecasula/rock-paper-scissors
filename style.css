@@ -41,6 +41,8 @@ main {
 
 .buttons button {
     font-size: 8em;
+    border-radius: 50%;
+    border: 6px solid black;
 }
 
 button:hover {
