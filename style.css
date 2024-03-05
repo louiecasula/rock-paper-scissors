@@ -43,6 +43,10 @@ main {
     font-size: 8em;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 footer {
     display: flex;
     flex: auto;
